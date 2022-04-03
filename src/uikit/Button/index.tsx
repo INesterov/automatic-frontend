@@ -3,13 +3,14 @@ import { StyledButton } from './styled';
 
 type Props = {
   children: string;
-  onClick: () => void;
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
 export const Button = (props: Props): JSX.Element => {
-  const { children, onClick } = props;
+  const { children, onClick, type } = props;
 
   return (
-    <StyledButton onClick={onClick}>{children}</StyledButton>
+    <StyledButton onClick={onClick} type={type}>{children}</StyledButton>
   );
 };

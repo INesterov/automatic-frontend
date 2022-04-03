@@ -1,10 +1,7 @@
 import { FormState } from './types';
 
 export const validate = (values: FormState) => {
-  const errors = {
-    email: '',
-    password: ''
-  };
+  const errors: any = {};
 
   if (!values.email) {
     errors.email = 'Required';

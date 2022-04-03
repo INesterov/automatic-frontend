@@ -1,19 +1,27 @@
 import React from 'react';
+import jwt_decode from 'jwt-decode';
+import { getTokens } from 'pages/Auth/helpers/tokens';
 import { User } from 'types/user';
 
 type AuthContextType = {
   user: User | null;
-  signin: (user: User, callback: () => void) => void;
+  signin: (user: User) => void;
   signout: (callback: () => void) => void;
 };
 
 export const AuthContext = React.createContext<AuthContextType>(null!);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = React.useState<User | null>(null);
-  const signin = (newUser: User, callback: () => void) => {
+  const tokens = getTokens();
+  let initState = null;
+
+  if (tokens && tokens.accessToken) {
+    const { user } = jwt_decode(tokens.accessToken) as { user: User};
+    initState = user;
+  }
+  const [user, setUser] = React.useState<User | null>(initState);
+  const signin = (newUser: User) => {
     setUser(newUser);
-    callback();
   };
   const signout = (callback: () => void) => {
     setUser(null);
