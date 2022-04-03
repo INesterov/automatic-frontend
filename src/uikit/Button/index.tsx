@@ -3,12 +3,13 @@ import { StyledButton } from './styled';
 
 type Props = {
   children: string;
+  onClick: () => void;
 }
 
 export const Button = (props: Props): JSX.Element => {
-  const { children } = props;
+  const { children, onClick } = props;
 
   return (
-    <StyledButton>{children}</StyledButton>
+    <StyledButton onClick={onClick}>{children}</StyledButton>
   );
 };

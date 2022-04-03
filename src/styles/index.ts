@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     font-family: 'Roboto', sans-serif;
   }
-  h1, h2, h3, h4, h5, h6, a, ul {
+  h1, h2, h3, h4, h5, h6, a, ul, p {
     padding: 0;
     margin: 0;
   }
