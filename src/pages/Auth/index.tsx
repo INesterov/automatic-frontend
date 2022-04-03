@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from 'uikit';
+import { Input, Button } from 'uikit';
 import { MdPerson, MdPassword } from 'react-icons/md';
 import { Container, FormWrap, Title, InputWrap } from './styled';
 
@@ -15,6 +15,7 @@ export const Auth = (): JSX.Element => {
           <Input placeholder="Пароль" icon={MdPassword} iconPosition="left" type="password" />
         </InputWrap>
       </FormWrap>
+      <Button>Войти</Button>
     </Container>
   );
 };

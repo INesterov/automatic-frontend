@@ -5,6 +5,9 @@ export const Container = styled.div`
   height: 100%;
   padding: 40px 24px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const FormWrap = styled.div`
