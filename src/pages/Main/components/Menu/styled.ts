@@ -10,7 +10,12 @@ export const Menu = styled.div`
   align-items: center;
   padding: 0 48px;
   justify-content: space-between;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
 `;
 
 export const AddButtonWrap = styled.div`
