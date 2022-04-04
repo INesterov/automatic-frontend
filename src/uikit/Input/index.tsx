@@ -8,7 +8,7 @@ export type InputProps = {
   iconPosition?: 'left' | 'right';
   type?: HTMLInputElement['type'];
   name?: string;
-  onChange?: (e: React.ChangeEvent<any>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
 }
 

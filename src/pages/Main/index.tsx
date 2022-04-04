@@ -1,7 +1,18 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+import { Menu } from './components/Menu';
+import {
+  Container,
+  Content
+} from './styled';
 
 export const Main = (): JSX.Element => {
   return (
-    <h1>Main</h1>
+    <Container>
+      <Content>
+        <Outlet />
+      </Content>
+      <Menu />
+    </Container>
   );
 };
