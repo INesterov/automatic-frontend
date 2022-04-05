@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconButton } from 'uikit';
+import { Link as RouterLink } from 'react-router-dom';
 import { MdOutlineHome, MdOutlineTask } from 'react-icons/md';
 import { VscAdd } from 'react-icons/vsc';
 import {
@@ -15,9 +16,11 @@ export const Menu = (): JSX.Element => {
         <MdOutlineHome size={32} fill="#9090B1" />
       </Link>
       <AddButtonWrap>
-        <IconButton>
-          {VscAdd}
-        </IconButton>
+        <RouterLink to="/create/step-1">
+          <IconButton>
+            {VscAdd}
+          </IconButton>
+        </RouterLink>
       </AddButtonWrap>
       <Link to="/notes">
         <MdOutlineTask size={32} fill="#9090B1" />

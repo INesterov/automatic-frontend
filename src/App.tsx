@@ -7,7 +7,9 @@ import {
   ApolloLink,
   concat
 } from '@apollo/client';
+import { Provider } from 'react-redux';
 import { AuthProvider } from 'context/auth';
+import { store } from 'store';
 import { getTokens } from './pages/Auth/helpers/tokens';
 import { GlobalStyle } from './styles';
 import { Router } from './routes';
@@ -37,8 +39,10 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <AuthProvider>
-        <GlobalStyle />
-        <Router />
+        <Provider store={store}>
+          <GlobalStyle />
+          <Router />
+        </Provider>
       </AuthProvider>
     </ApolloProvider>
   );
