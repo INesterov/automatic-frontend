@@ -46,6 +46,33 @@ export interface LoginVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: Note
+// ====================================================
+
+export interface Note_note {
+  emotion: string;
+  situation: string;
+  senses: string;
+  anxietyLevel: number;
+  automaticThought: string;
+  behavior: string;
+  bodilySensations: string;
+  createdAt: any;
+}
+
+export interface Note {
+  note: Note_note;
+}
+
+export interface NoteVariables {
+  id: number;
+}
+
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: Notes
 // ====================================================
 

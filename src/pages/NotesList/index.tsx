@@ -1,5 +1,6 @@
 import React from 'react';
 import { format } from 'date-fns';
+import { Link } from 'react-router-dom';
 import ruLocale from 'date-fns/locale/ru';
 import { useQuery, useApolloClient } from '@apollo/client';
 import { Skeleton } from 'uikit';
@@ -10,7 +11,8 @@ import { Note } from './components/Note';
 import {
   Container,
   Content,
-  NoNotesText
+  NoNotesText,
+  Item
 } from './styled';
 
 export const NotesList = (): JSX.Element => {
@@ -38,11 +40,14 @@ export const NotesList = (): JSX.Element => {
           const dateString = format(new Date(note.createdAt), 'dd MMM yyy', { locale: ruLocale });
 
           return (
-          <Note
-            key={note.id}
-            text={note.situation}
-            date={dateString}
-          />
+            <Item>
+              <Link key={note.id} to={`/note/${note.id}`} style={{ textDecoration: 'none' }}>
+                <Note
+                  text={note.situation}
+                  date={dateString}
+                />
+              </Link>
+            </Item>
           );
         })}
 
