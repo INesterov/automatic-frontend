@@ -7,6 +7,8 @@ export type CreatingNoteState = {
   automaticThought: string;
   behavior: string;
   senses: string;
+  anxietyLevel: number;
+
 }
 
 const initialState: CreatingNoteState = {
@@ -15,12 +17,13 @@ const initialState: CreatingNoteState = {
   bodilySensations: '',
   automaticThought: '',
   behavior: '',
-  senses: ''
+  senses: '',
+  anxietyLevel: 0
 };
 
 type Payload = {
-  name: 'situation' | 'emotion' | 'bodilySensations' | 'automaticThought' | 'behavior' | 'senses';
-  value: string;
+  name: 'situation' | 'emotion' | 'bodilySensations' | 'automaticThought' | 'behavior' | 'senses' | 'anxietyLevel';
+  value: never;
 }
 
 export const creatingNoteSlice = createSlice({

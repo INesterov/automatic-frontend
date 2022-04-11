@@ -18,6 +18,10 @@ export const getNextLink = (step: Steps) => {
       return '/create/step-5';
     }
 
+    case (Steps.STEP5): {
+      return '/create/step-6';
+    }
+
     default: {
       return '/notes';
     }

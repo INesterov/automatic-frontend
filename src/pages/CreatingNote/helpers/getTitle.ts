@@ -22,6 +22,10 @@ export const getTitle = (step: Steps) => {
       return 'Ваше поведение';
     }
 
+    case (Steps.STEP6): {
+      return 'Уровень тревоги';
+    }
+
     default: {
       return '';
     }

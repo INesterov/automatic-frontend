@@ -4,4 +4,5 @@ export const enum Steps {
   STEP3 = 'step-3',
   STEP4 = 'step-4',
   STEP5 = 'step-5',
+  STEP6 = 'step-6',
 }

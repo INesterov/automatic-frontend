@@ -9,7 +9,7 @@ export const Step3 = (): JSX.Element => {
   const bodilySensations = useSelector((state: RootState) => state.creatingNote.bodilySensations);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const value = e.target.value;
+    const value = e.target.value as never;
 
     dispatch(setValue({ name: 'bodilySensations', value }));
   }, [dispatch]);

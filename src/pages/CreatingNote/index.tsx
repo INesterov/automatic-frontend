@@ -13,6 +13,7 @@ import { Step2 } from './components/Step2';
 import { Step3 } from './components/Step3';
 import { Step4 } from './components/Step4';
 import { Step5 } from './components/Step5';
+import { Step6 } from './components/Step6';
 import { getBackLink } from './helpers/getBackLink';
 import { getTitle } from './helpers/getTitle';
 import { getStepNumber, getStepLabel } from './helpers/getStepNumber';
@@ -39,12 +40,15 @@ export const CreatingNote = (): JSX.Element => {
     'step-2': <Step2 />,
     'step-3': <Step3 />,
     'step-4': <Step4 />,
-    'step-5': <Step5 />
+    'step-5': <Step5 />,
+    'step-6': <Step6 />
   };
 
   const saveNewNote = React.useCallback(async() => {
+    const { anxietyLevel, ...restParams } = newNote;
+    const note = { ...restParams, anxietyLevel: String(anxietyLevel) };
     const { data } = await createNote({ variables: {
-      note: newNote
+      note
     } });
 
     if (data?.createNote.id) {
@@ -69,7 +73,7 @@ export const CreatingNote = (): JSX.Element => {
         />
         <ContentWrap>{stepsMap[step as Steps]}</ContentWrap>
       </Content>
-      {step === Steps.STEP5 ? (
+      {step === Steps.STEP6 ? (
         <ButtonWrap>
           <Button onClick={saveNewNote}>Сохранить</Button>
         </ButtonWrap>

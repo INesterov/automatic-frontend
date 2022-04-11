@@ -9,7 +9,7 @@ export const Step5 = (): JSX.Element => {
   const behavior = useSelector((state: RootState) => state.creatingNote.behavior);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const value = e.target.value;
+    const value = e.target.value as never;
 
     dispatch(setValue({ name: 'behavior', value }));
   }, [dispatch]);

@@ -11,13 +11,13 @@ export const Step2 = (): JSX.Element => {
   const senses = useSelector((state: RootState) => state.creatingNote.senses);
 
   const handleChangeEmotion = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const value = e.target.value as never;
 
     dispatch(setValue({ name: 'emotion', value }));
   }, [dispatch]);
 
   const handleChangeSenses = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const value = e.target.value as never;
 
     dispatch(setValue({ name: 'senses', value }));
   }, [dispatch]);

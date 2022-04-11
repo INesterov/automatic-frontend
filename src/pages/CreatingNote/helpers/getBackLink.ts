@@ -22,6 +22,10 @@ export const getBackLink = (step: Steps) => {
       return '/create/step-4';
     }
 
+    case (Steps.STEP6): {
+      return '/create/step-5';
+    }
+
     default: {
       return '/notes';
     }

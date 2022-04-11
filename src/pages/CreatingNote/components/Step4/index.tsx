@@ -9,7 +9,7 @@ export const Step4 = (): JSX.Element => {
   const automaticThought = useSelector((state: RootState) => state.creatingNote.automaticThought);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const value = e.target.value;
+    const value = e.target.value as never;
 
     dispatch(setValue({ name: 'automaticThought', value }));
   }, [dispatch]);

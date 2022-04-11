@@ -74,6 +74,7 @@ export interface CreateNoteGQL {
   bodilySensations: string;
   automaticThought: string;
   behavior: string;
+  anxietyLevel: string;
 }
 
 //==============================================================
