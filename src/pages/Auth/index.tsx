@@ -16,6 +16,7 @@ import { validate } from './validate';
 import { FormState } from './types';
 
 export const Auth = (): JSX.Element => {
+  const [authError, setAuthError] = React.useState('');
   const [login] = useMutation<Login, LoginVariables>(loginMutation);
   const auth = useAuth();
   const navigate = useNavigate();
@@ -28,6 +29,8 @@ export const Auth = (): JSX.Element => {
 
       auth.signin(user);
       navigate('/');
+    } else {
+      setAuthError('Неверный пароль');
     }
   }, [login, auth, navigate]);
   const formik = useFormik({
@@ -66,7 +69,7 @@ export const Auth = (): JSX.Element => {
             name="password"
             onChange={formik.handleChange}
             value={formik.values.password}
-            error={formik.errors.password}
+            error={formik.errors.password || authError}
           />
         </InputWrap>
       </FormWrap>

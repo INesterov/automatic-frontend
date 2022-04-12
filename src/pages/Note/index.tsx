@@ -5,8 +5,10 @@ import ruLocale from 'date-fns/locale/ru';
 import { useQuery } from '@apollo/client';
 import { Note as NoteGQL, NoteVariables } from 'gql/types';
 import { noteQuery } from 'gql/queries/noteQuery.graphql';
-import { MdChevronLeft, MdOutlineRemove } from 'react-icons/md';
+import { MdChevronLeft } from 'react-icons/md';
+import { VscTrash } from 'react-icons/vsc';
 import { H1, TextField } from 'uikit';
+import { Skeleton } from './components/Skeleton';
 import {
   Container,
   Header,
@@ -17,7 +19,7 @@ import {
 export const Note = (): JSX.Element => {
   const params = useParams();
   const { id } = params;
-  const { data } = useQuery<NoteGQL, NoteVariables>(noteQuery, {
+  const { data, loading } = useQuery<NoteGQL, NoteVariables>(noteQuery, {
     variables: {
       id: Number(id)
     }
@@ -33,30 +35,58 @@ export const Note = (): JSX.Element => {
           <MdChevronLeft size={36} fill="#9090B1" />
         </Link>
         <H1>{dateFormatted}</H1>
-        <MdOutlineRemove size={36} fill="#b21092" />
+        <VscTrash size={24} fill="#9090B1" />
       </Header>
       <Content>
-        <Item>
-          <TextField label="Ситуация" value={data?.note.situation ?? ''} />
-        </Item>
-        <Item>
-          <TextField label="Автоматическая мысль" value={data?.note.automaticThought ?? ''} />
-        </Item>
-        <Item>
-          <TextField label="Эмоция" value={data?.note.emotion ?? ''} />
-        </Item>
-        <Item>
-          <TextField label="Чувства" value={data?.note.senses ?? ''} />
-        </Item>
-        <Item>
-          <TextField label="Телесная реакция" value={data?.note.bodilySensations ?? ''} />
-        </Item>
-        <Item>
-          <TextField label="Поведение" value={data?.note.behavior ?? ''} />
-        </Item>
-        <Item>
-          <TextField label="Уровень тревоги" value={String(data?.note.anxietyLevel) ?? ''} />
-        </Item>
+        {loading && (
+          <>
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+          </>
+        )}
+        {!loading && (
+          <>
+            {data?.note.situation && (
+              <Item>
+                <TextField label="Ситуация" value={data?.note.situation ?? ''} />
+              </Item>
+            )}
+            {data?.note.automaticThought && (
+              <Item>
+                <TextField label="Автоматическая мысль" value={data?.note.automaticThought ?? ''} />
+              </Item>
+            )}
+            {data?.note.emotion && (
+              <Item>
+                <TextField label="Эмоция" value={data?.note.emotion ?? ''} />
+              </Item>
+            )}
+            {data?.note.bodilySensations && (
+              <Item>
+                <TextField label="Чувства" value={data?.note.bodilySensations ?? ''} />
+              </Item>
+            )}
+            {data?.note.situation && (
+              <Item>
+                <TextField label="Телесная реакция" value={data?.note.situation ?? ''} />
+              </Item>
+            )}
+            {data?.note.behavior && (
+              <Item>
+                <TextField label="Поведение" value={data?.note.behavior ?? ''} />
+              </Item>
+            )}
+            {data?.note.anxietyLevel && (
+              <Item>
+                <TextField label="Уровень тревоги" value={String(data?.note.anxietyLevel) ?? ''} />
+              </Item>
+            )}
+          </>
+        )}
       </Content>
     </Container>
   );
