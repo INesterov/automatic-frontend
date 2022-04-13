@@ -10,6 +10,7 @@ import { Main } from 'pages/Main';
 import { Auth } from 'pages/Auth';
 import { CreatingNote } from 'pages/CreatingNote';
 import { Note } from 'pages/Note';
+import { RemoveNote } from 'pages/RemoveNote';
 import { RequireAuth } from 'components/RequireAuth';
 
 export const Router = (): JSX.Element => {
@@ -37,6 +38,11 @@ export const Router = (): JSX.Element => {
         <Route path="/note/:id" element={
           <RequireAuth>
             <Note />
+          </RequireAuth>
+        } />
+        <Route path="/note/:id/remove" element={
+          <RequireAuth>
+            <RemoveNote />
           </RequireAuth>
         } />
       </Routes>

@@ -46,6 +46,22 @@ export interface LoginVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: RemoveNote
+// ====================================================
+
+export interface RemoveNote {
+  removeNote: string;
+}
+
+export interface RemoveNoteVariables {
+  id: number;
+}
+
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: Note
 // ====================================================
 
@@ -84,6 +100,10 @@ export interface Notes_notes {
 
 export interface Notes {
   notes: Notes_notes[];
+}
+
+export interface NotesVariables {
+  searchText: string;
 }
 
 /* tslint:disable */

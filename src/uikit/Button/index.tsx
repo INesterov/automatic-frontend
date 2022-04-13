@@ -5,12 +5,13 @@ type Props = {
   children: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset' | undefined;
+  view?: 'shape' | 'ghost';
 }
 
 export const Button = (props: Props): JSX.Element => {
-  const { children, onClick, type } = props;
+  const { children, onClick, type, view = 'shape' } = props;
 
   return (
-    <StyledButton onClick={onClick} type={type}>{children}</StyledButton>
+    <StyledButton view={view} onClick={onClick} type={type}>{children}</StyledButton>
   );
 };

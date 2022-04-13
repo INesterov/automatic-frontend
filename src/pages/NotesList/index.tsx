@@ -5,7 +5,7 @@ import ruLocale from 'date-fns/locale/ru';
 import { useQuery, useApolloClient } from '@apollo/client';
 import { Skeleton } from 'uikit';
 import { notesQuery } from 'gql/queries/notesQuery.graphql';
-import { Notes } from 'gql/types';
+import { Notes, NotesVariables } from 'gql/types';
 import { Header } from './components/Header';
 import { Note } from './components/Note';
 import {
@@ -16,7 +16,12 @@ import {
 } from './styled';
 
 export const NotesList = (): JSX.Element => {
-  const { data, loading } = useQuery<Notes, void>(notesQuery);
+  const [searchText, setSearchText] = React.useState('');
+  const { data, loading } = useQuery<Notes, NotesVariables>(notesQuery, {
+    variables: {
+      searchText
+    }
+  });
   const client = useApolloClient();
 
   React.useEffect(() => {
@@ -25,9 +30,15 @@ export const NotesList = (): JSX.Element => {
     });
   }, []);
 
+  const handleSearch = React.useCallback((e: React.FocusEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    setSearchText(value);
+  }, []);
+
   return (
     <Container>
-      <Header />
+      <Header onSearch={handleSearch} />
       <Content>
         {loading && (
           <>

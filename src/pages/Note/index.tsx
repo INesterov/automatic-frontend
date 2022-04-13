@@ -35,7 +35,9 @@ export const Note = (): JSX.Element => {
           <MdChevronLeft size={36} fill="#9090B1" />
         </Link>
         <H1>{dateFormatted}</H1>
-        <VscTrash size={24} fill="#9090B1" />
+        <Link to={`/note/${id}/remove`}>
+          <VscTrash size={24} fill="#9090B1" />
+        </Link>
       </Header>
       <Content>
         {loading && (

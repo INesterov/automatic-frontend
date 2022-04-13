@@ -24,6 +24,9 @@ export const ContentWrap = styled.div`
 
 export const ButtonWrap = styled.div`
   margin-top: auto;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 8px;
 `;
 
 export const Content = styled.div``;

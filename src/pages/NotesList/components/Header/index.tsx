@@ -5,11 +5,17 @@ import {
   StyledHeader
 } from './styled';
 
-export const Header = (): JSX.Element => {
+type Props = {
+  onSearch: (e: React.FocusEvent<HTMLInputElement>) => void;
+}
+
+export const Header = (props: Props): JSX.Element => {
+  const { onSearch } = props;
+
   return (
     <StyledHeader>
       <H1>Записи</H1>
-      <Input icon={MdSearch} iconPosition="right" />
+      <Input icon={MdSearch} iconPosition="right" onBlur={onSearch}/>
     </StyledHeader>
   );
 };

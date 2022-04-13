@@ -68,7 +68,7 @@ export const CreatingNote = (): JSX.Element => {
         <Title>{getTitle(step as Steps)}</Title>
         <ProgressBar
           step={getStepNumber(step as Steps)}
-          steps={5}
+          steps={6}
           label={getStepLabel(step as Steps)}
         />
         <ContentWrap>{stepsMap[step as Steps]}</ContentWrap>
@@ -79,6 +79,9 @@ export const CreatingNote = (): JSX.Element => {
         </ButtonWrap>
       ) : (
         <ButtonWrap>
+          <Link to={getNextLink(step as Steps)}>
+            <Button view="ghost">Пропустить</Button>
+          </Link>
           <Link to={getNextLink(step as Steps)}>
             <Button>Продолжить</Button>
           </Link>

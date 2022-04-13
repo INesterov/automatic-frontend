@@ -22,6 +22,10 @@ export const getStepNumber = (step: Steps) => {
       return 5;
     }
 
+    case (Steps.STEP6): {
+      return 6;
+    }
+
     default: {
       return 1;
     }
