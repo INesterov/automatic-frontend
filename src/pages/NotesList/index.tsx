@@ -28,7 +28,7 @@ export const NotesList = (): JSX.Element => {
     client.refetchQueries({
       include: ['Notes']
     });
-  }, []);
+  }, [client]);
 
   const handleSearch = React.useCallback((e: React.FocusEvent<HTMLInputElement>) => {
     const value = e.target.value;
