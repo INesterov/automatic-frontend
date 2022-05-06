@@ -59,7 +59,7 @@ export const Note = (): JSX.Element => {
             )}
             {data?.note.automaticThought && (
               <Item>
-                <TextField label="Автоматическая мысль" value={data?.note.automaticThought ?? ''} />
+                <TextField label="Мысль" value={data?.note.automaticThought ?? ''} />
               </Item>
             )}
             {data?.note.emotion && (
@@ -69,12 +69,12 @@ export const Note = (): JSX.Element => {
             )}
             {data?.note.bodilySensations && (
               <Item>
-                <TextField label="Чувства" value={data?.note.bodilySensations ?? ''} />
+                <TextField label="Чувства" value={data?.note.senses ?? ''} />
               </Item>
             )}
             {data?.note.situation && (
               <Item>
-                <TextField label="Телесная реакция" value={data?.note.situation ?? ''} />
+                <TextField label="Телесная реакция" value={data?.note.bodilySensations ?? ''} />
               </Item>
             )}
             {data?.note.behavior && (

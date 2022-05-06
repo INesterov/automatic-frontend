@@ -15,6 +15,6 @@ export const Step4 = (): JSX.Element => {
   }, [dispatch]);
 
   return (
-    <Textarea rows={5} placeholder="Автоматическая мысль" value={automaticThought} onChange={handleChange} />
+    <Textarea rows={5} placeholder="Мысль" value={automaticThought} onChange={handleChange} />
   );
 };

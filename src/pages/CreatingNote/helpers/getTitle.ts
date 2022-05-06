@@ -15,7 +15,7 @@ export const getTitle = (step: Steps) => {
     }
 
     case (Steps.STEP4): {
-      return 'Автоматическая мысль';
+      return 'Мысль';
     }
 
     case (Steps.STEP5): {

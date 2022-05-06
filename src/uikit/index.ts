@@ -8,3 +8,4 @@ export { ProgressBar } from './ProgressBar';
 export { Textarea } from './Textarea';
 export { Slider } from './Slider';
 export { TextField } from './TextField';
+export { PasswordInput } from './PasswordInput';

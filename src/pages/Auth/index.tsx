@@ -4,8 +4,7 @@ import { useMutation } from '@apollo/client';
 import { useFormik } from 'formik';
 import { Button } from 'uikit';
 import jwt_decode from 'jwt-decode';
-import { InputField } from 'form';
-import { MdPerson, MdPassword } from 'react-icons/md';
+import { InputField, PasswordField } from 'form';
 import { User } from 'types/user';
 import { useAuth } from 'context/auth';
 import { Login, LoginVariables } from 'gql/types';
@@ -51,8 +50,6 @@ export const Auth = (): JSX.Element => {
         <InputWrap>
           <InputField
             placeholder="Email"
-            icon={MdPerson}
-            iconPosition="left"
             type="email"
             name="email"
             onChange={formik.handleChange}
@@ -61,10 +58,8 @@ export const Auth = (): JSX.Element => {
           />
         </InputWrap>
         <InputWrap>
-          <InputField
+          <PasswordField
             placeholder="Пароль"
-            icon={MdPassword}
-            iconPosition="left"
             type="password"
             name="password"
             onChange={formik.handleChange}
