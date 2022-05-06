@@ -1,8 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { useFormik } from 'formik';
-import { Button } from 'uikit';
+import { Button, HelpText } from 'uikit';
 import jwt_decode from 'jwt-decode';
 import { InputField, PasswordField } from 'form';
 import { User } from 'types/user';
@@ -19,6 +19,14 @@ export const Auth = (): JSX.Element => {
   const [login] = useMutation<Login, LoginVariables>(loginMutation);
   const auth = useAuth();
   const navigate = useNavigate();
+  const params = useParams();
+  const { action } = params;
+
+  const title = action === 'sign-up' ? 'Регистрация' : 'Вход';
+  const actionText = action === 'sign-up' ? 'Зарегистрироваться' : 'Войти';
+  const linkText = action === 'sign-up' ? 'Войти' : 'Зарегистрироваться';
+  const link = action === 'sign-up' ? '/auth/sign-in' : '/auth/sign-up';
+
   const handleLogin = React.useCallback(async(values: FormState) => {
     const { data } = await login({ variables: values });
 
@@ -46,7 +54,7 @@ export const Auth = (): JSX.Element => {
   return (
     <Container>
       <FormWrap>
-        <Title>Вход</Title>
+        <Title>{title}</Title>
         <InputWrap>
           <InputField
             placeholder="Email"
@@ -68,7 +76,14 @@ export const Auth = (): JSX.Element => {
           />
         </InputWrap>
       </FormWrap>
-      <Button onClick={formik.handleSubmit}>Войти</Button>
+      <div>
+        <InputWrap>
+          <Button onClick={formik.handleSubmit}>{actionText}</Button>
+        </InputWrap>
+        <Link to={link} style={{ textDecoration: 'none' }}>
+          <HelpText style={{ textAlign: 'center' }}>{linkText}</HelpText>
+        </Link>
+      </div>
     </Container>
   );
 };

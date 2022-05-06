@@ -29,7 +29,7 @@ export const Router = (): JSX.Element => {
           } />
           <Route index element={<Stats />} />
         </Route>
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/auth/:action" element={<Auth />} />
         <Route path="/create/:step" element={
           <RequireAuth>
             <CreatingNote />
