@@ -37,7 +37,9 @@ export const Slider = (props: Props): JSX.Element => {
         <StyledTrack>
           <StyledRange />
         </StyledTrack>
-        <StyledThumb />
+        <StyledThumb>
+          {defaultValue}
+        </StyledThumb>
       </StyledSlider>
       {max && (
         <Labels>

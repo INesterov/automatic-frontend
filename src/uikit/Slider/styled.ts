@@ -36,12 +36,16 @@ export const StyledRange = styled(SliderPrimitive.Range)`
 
 export const StyledThumb = styled(SliderPrimitive.Thumb)`
   all: unset;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px!important;
   background-color: #9A9CFC;
   box-shadow: 0 2px 10px #DCDCF5;
   border-radius: 10px;
+  color: #ffffff;
+  font-size: 11px;
 `;
 
 export const Labels = styled.div`
