@@ -67,4 +67,5 @@ jobs:
           script: |
             docker image rm inesterov/automatic-back --force
             docker stop automatic-back
+            docker rm automatic-back
             docker run --name automatic-back -p 80:80 -d --rm inesterov/automatic-back
