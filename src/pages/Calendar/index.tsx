@@ -11,9 +11,9 @@ import {
 } from './styled';
 
 export const Calendar = (): JSX.Element => {
-  const { cursorDate, headers, body, navigation, view } = useCalendar({ defaultWeekStart: 1 });
+  const { cursorDate, headers, body, navigation } = useCalendar({ defaultWeekStart: 1 });
 
-  const { data, loading } = useQuery<Notes, NotesVariables>(notesQuery, {
+  const { data } = useQuery<Notes, NotesVariables>(notesQuery, {
     variables: {
       searchText: ''
     }

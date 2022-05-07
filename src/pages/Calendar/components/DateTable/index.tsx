@@ -95,7 +95,6 @@ export const DateTable = (props: Props): JSX.Element => {
                 const {
                   key,
                   date,
-                  isCurrentDate,
                   isCurrentMonth,
                   isWeekend,
                   value
