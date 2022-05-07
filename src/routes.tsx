@@ -5,7 +5,8 @@ import {
   Route
 } from 'react-router-dom';
 import { NotesList } from 'pages/NotesList';
-import { Stats } from 'pages/Stats';
+import { NotesByDay } from 'pages/NotesList/NotesByDay';
+import { Calendar } from 'pages/Calendar';
 import { Main } from 'pages/Main';
 import { Auth } from 'pages/Auth';
 import { CreatingNote } from 'pages/CreatingNote';
@@ -24,12 +25,17 @@ export const Router = (): JSX.Element => {
             <Main />
           </RequireAuth>
         }>
-          <Route path="notes" element={
+          <Route path="/notes" element={
             <RequireAuth>
               <NotesList />
             </RequireAuth>
           } />
-          <Route index element={<Stats />} />
+          <Route path="/notes/:date" element={
+            <RequireAuth>
+              <NotesByDay />
+            </RequireAuth>
+          } />
+          <Route index element={<Calendar />} />
         </Route>
         <Route path="/auth/:action" element={<Auth />} />
         <Route path="/need-email-confirm" element={<NeedEmailConfirm />} />
