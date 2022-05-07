@@ -11,6 +11,8 @@ import { Auth } from 'pages/Auth';
 import { CreatingNote } from 'pages/CreatingNote';
 import { Note } from 'pages/Note';
 import { RemoveNote } from 'pages/RemoveNote';
+import { NeedEmailConfirm } from 'pages/NeedEmailConfirm';
+import { EmailConfirm } from 'pages/EmailConfirm';
 import { RequireAuth } from 'components/RequireAuth';
 
 export const Router = (): JSX.Element => {
@@ -30,6 +32,8 @@ export const Router = (): JSX.Element => {
           <Route index element={<Stats />} />
         </Route>
         <Route path="/auth/:action" element={<Auth />} />
+        <Route path="/need-email-confirm" element={<NeedEmailConfirm />} />
+        <Route path="/confirm-email*" element={<EmailConfirm />} />
         <Route path="/create/:step" element={
           <RequireAuth>
             <CreatingNote />
