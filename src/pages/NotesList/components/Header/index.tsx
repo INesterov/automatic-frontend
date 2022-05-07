@@ -6,16 +6,19 @@ import {
 } from './styled';
 
 type Props = {
-  onSearch: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onSearch?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  title?: string;
 }
 
 export const Header = (props: Props): JSX.Element => {
-  const { onSearch } = props;
+  const { onSearch, title } = props;
 
   return (
     <StyledHeader>
-      <H1>Записи</H1>
-      <Input icon={MdSearch} iconPosition="right" onBlur={onSearch}/>
+      <H1>{title || 'Записи'}</H1>
+      {onSearch && (
+        <Input icon={MdSearch} iconPosition="right" onBlur={onSearch}/>
+      )}
     </StyledHeader>
   );
 };

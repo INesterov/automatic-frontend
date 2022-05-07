@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.5.10",
+    "@h6s/calendar": "^1.0.5",
     "@radix-ui/react-progress": "^0.1.4",
     "@radix-ui/react-slider": "^0.1.4",
     "@reduxjs/toolkit": "^1.8.1",

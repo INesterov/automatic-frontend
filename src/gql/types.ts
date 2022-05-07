@@ -110,6 +110,28 @@ export interface NoteVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: NotesByDay
+// ====================================================
+
+export interface NotesByDay_notesByDay {
+  situation: string;
+  createdAt: any;
+  id: number;
+}
+
+export interface NotesByDay {
+  notesByDay: NotesByDay_notesByDay[];
+}
+
+export interface NotesByDayVariables {
+  time: number;
+}
+
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: Notes
 // ====================================================
 
