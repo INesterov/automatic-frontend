@@ -17,10 +17,10 @@ import {
 export const Menu = (): JSX.Element => {
   return (
     <StyledMenu>
-      <Link to="/history">
+      <Link to="/">
         <MdOutlineHistory size={32} fill="#9090B1" />
       </Link>
-      <Link to="/" style={{ marginRight: '32px'}}>
+      <Link to="/dates" style={{ marginRight: '32px'}}>
         <MdOutlineCalendarToday size={32} fill="#9090B1" />
       </Link>
       <AddButtonWrap>
