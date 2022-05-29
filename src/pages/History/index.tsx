@@ -14,7 +14,7 @@ import {
 } from './styled';
 
 export const History = (): JSX.Element => {
-  const { data, loading } = useQuery<HistoryGQL, null>(historyQuery);
+  const { data } = useQuery<HistoryGQL, null>(historyQuery);
   const client = useApolloClient();
 
   React.useEffect(() => {
