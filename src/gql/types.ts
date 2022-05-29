@@ -83,6 +83,27 @@ export interface RemoveNoteVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: Introspect
+// ====================================================
+
+export interface Introspect_introspect {
+  accessToken: string;
+  refreshToken: string;
+}
+
+export interface Introspect {
+  introspect: Introspect_introspect;
+}
+
+export interface IntrospectVariables {
+  tokens: TokensGQL;
+}
+
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: Note
 // ====================================================
 
@@ -165,6 +186,12 @@ export interface CreateNoteGQL {
   automaticThought: string;
   behavior: string;
   anxietyLevel: string;
+}
+
+// null
+export interface TokensGQL {
+  accessToken: string;
+  refreshToken: string;
 }
 
 //==============================================================
