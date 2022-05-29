@@ -1,7 +1,12 @@
 import React from 'react';
 import { IconButton } from 'uikit';
 import { Link as RouterLink } from 'react-router-dom';
-import { MdOutlineCalendarToday, MdOutlineTask } from 'react-icons/md';
+import {
+  MdOutlineCalendarToday,
+  MdOutlineTask,
+  MdOutlineHistory,
+  MdOutlineSettings
+} from 'react-icons/md';
 import { VscAdd } from 'react-icons/vsc';
 import {
   Menu as StyledMenu,
@@ -12,7 +17,10 @@ import {
 export const Menu = (): JSX.Element => {
   return (
     <StyledMenu>
-      <Link to="/">
+      <Link to="/history">
+        <MdOutlineHistory size={32} fill="#9090B1" />
+      </Link>
+      <Link to="/" style={{ marginRight: '32px'}}>
         <MdOutlineCalendarToday size={32} fill="#9090B1" />
       </Link>
       <AddButtonWrap>
@@ -22,8 +30,11 @@ export const Menu = (): JSX.Element => {
           </IconButton>
         </RouterLink>
       </AddButtonWrap>
-      <Link to="/notes">
+      <Link to="/notes" style={{ marginLeft: '32px'}}>
         <MdOutlineTask size={32} fill="#9090B1" />
+      </Link>
+      <Link to="/settings">
+        <MdOutlineSettings size={32} fill="#9090B1" />
       </Link>
     </StyledMenu>
   );

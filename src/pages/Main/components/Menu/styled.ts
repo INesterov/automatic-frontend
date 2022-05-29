@@ -8,7 +8,7 @@ export const Menu = styled.div`
   border-top: 2px solid #DCDCF5;
   display: flex;
   align-items: center;
-  padding: 0 48px;
+  padding: 0 32px;
   justify-content: space-between;
   position: fixed;
   width: 100%;

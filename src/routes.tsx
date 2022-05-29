@@ -14,6 +14,7 @@ import { Note } from 'pages/Note';
 import { RemoveNote } from 'pages/RemoveNote';
 import { NeedEmailConfirm } from 'pages/NeedEmailConfirm';
 import { EmailConfirm } from 'pages/EmailConfirm';
+import { Settings } from 'pages/Settings';
 import { RequireAuth } from 'components/RequireAuth';
 
 export const Router = (): JSX.Element => {
@@ -28,6 +29,11 @@ export const Router = (): JSX.Element => {
           <Route path="/notes" element={
             <RequireAuth>
               <NotesList />
+            </RequireAuth>
+          } />
+          <Route path="/settings" element={
+            <RequireAuth>
+              <Settings />
             </RequireAuth>
           } />
           <Route path="/notes/:date" element={
