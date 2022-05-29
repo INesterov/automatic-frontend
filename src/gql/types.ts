@@ -83,6 +83,24 @@ export interface RemoveNoteVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: History
+// ====================================================
+
+export interface History_history {
+  message: string;
+  link: string;
+  createdAt: any;
+}
+
+export interface History {
+  history: History_history[];
+}
+
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: Introspect
 // ====================================================
 

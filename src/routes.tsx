@@ -15,6 +15,7 @@ import { RemoveNote } from 'pages/RemoveNote';
 import { NeedEmailConfirm } from 'pages/NeedEmailConfirm';
 import { EmailConfirm } from 'pages/EmailConfirm';
 import { Settings } from 'pages/Settings';
+import { History } from 'pages/History';
 import { RequireAuth } from 'components/RequireAuth';
 
 export const Router = (): JSX.Element => {
@@ -36,12 +37,17 @@ export const Router = (): JSX.Element => {
               <Settings />
             </RequireAuth>
           } />
+          <Route path="/dates" element={
+            <RequireAuth>
+              <Calendar />
+            </RequireAuth>
+          } />
           <Route path="/notes/:date" element={
             <RequireAuth>
               <NotesByDay />
             </RequireAuth>
           } />
-          <Route index element={<Calendar />} />
+          <Route index element={<History />} />
         </Route>
         <Route path="/auth/:action" element={<Auth />} />
         <Route path="/need-email-confirm" element={<NeedEmailConfirm />} />
