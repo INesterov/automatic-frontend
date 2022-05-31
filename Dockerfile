@@ -27,5 +27,7 @@ COPY . .
 
 FROM nginx:1.21.6
 
+COPY --from=development /usr/src/app/www.autothoughts.xyz.crt /www.autothoughts.xyz.crt
+COPY --from=development /usr/src/app/www.autothoughts.xyz.key /www.autothoughts.xyz.key
 COPY --from=development /usr/src/app/nginx.conf /etc/nginx/nginx.conf
 COPY --from=development /usr/src/app/build /build
