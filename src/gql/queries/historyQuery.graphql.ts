@@ -6,6 +6,7 @@ export const historyQuery = gql`
       message
       link
       createdAt
+      id
     }
   }
 `;

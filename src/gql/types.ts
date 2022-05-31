@@ -90,6 +90,7 @@ export interface History_history {
   message: string;
   link: string;
   createdAt: any;
+  id: number;
 }
 
 export interface History {

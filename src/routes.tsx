@@ -51,7 +51,7 @@ export const Router = (): JSX.Element => {
         </Route>
         <Route path="/auth/:action" element={<Auth />} />
         <Route path="/need-email-confirm" element={<NeedEmailConfirm />} />
-        <Route path="/confirm-email*" element={<EmailConfirm />} />
+        <Route path="/confirm-email/*" element={<EmailConfirm />} />
         <Route path="/create/:step" element={
           <RequireAuth>
             <CreatingNote />

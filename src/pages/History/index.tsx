@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { historyQuery } from 'gql/queries/historyQuery.graphql';
 import { History as HistoryGQL } from 'gql/types';
 import { H1, Text, HelpText } from 'uikit';
+import { Skeleton } from './components/Skeleton';
 import {
   Container,
   Header,
@@ -14,7 +15,7 @@ import {
 } from './styled';
 
 export const History = (): JSX.Element => {
-  const { data } = useQuery<HistoryGQL, null>(historyQuery);
+  const { data, loading } = useQuery<HistoryGQL, null>(historyQuery);
   const client = useApolloClient();
 
   React.useEffect(() => {
@@ -29,11 +30,21 @@ export const History = (): JSX.Element => {
         <H1>История</H1>
       </Header>
       <Content>
-        {data?.history?.map(item => {
+        {data?.history?.length === 0 && (
+          <HelpText style={{ textAlign: 'center'}}>Нет записей</HelpText>
+        )}
+        {loading && (
+          <>
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+          </>
+        )}
+        {!loading && data?.history?.map(item => {
           const dateString = format(new Date(item.createdAt), 'dd MMM yyy, HH:mm', { locale: ruLocale });
 
           return (
-            <Item>
+            <Item key={item.id}>
               <Link to={item.link} style={{ textDecoration: 'none'}}>
                 <Text style={{ marginBottom: '8px'}}>{item.message}</Text>
               </Link>

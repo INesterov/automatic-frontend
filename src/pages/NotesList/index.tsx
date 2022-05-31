@@ -51,8 +51,8 @@ export const NotesList = (): JSX.Element => {
           const dateString = format(new Date(note.createdAt), 'dd MMM yyy', { locale: ruLocale });
 
           return (
-            <Item>
-              <Link key={note.id} to={`/note/${note.id}`} style={{ textDecoration: 'none' }}>
+            <Item key={note.id}>
+              <Link to={`/note/${note.id}`} style={{ textDecoration: 'none' }}>
                 <Note
                   text={note.situation}
                   date={dateString}
