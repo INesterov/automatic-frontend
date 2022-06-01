@@ -68,4 +68,4 @@ jobs:
             docker image rm inesterov/automatic-back --force
             docker stop automatic-back
             docker rm automatic-back
-            docker run --name automatic-back -p 443:443 -d inesterov/automatic-back
+            docker run --name automatic-back -p 443:443 -p 80:80 -d inesterov/automatic-back
