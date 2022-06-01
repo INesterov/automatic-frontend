@@ -14,8 +14,8 @@ import { getTokens } from './pages/Auth/helpers/tokens';
 import { GlobalStyle } from './styles';
 import { Router } from './routes';
 
-const httpLink = new HttpLink({ uri: 'http://185.137.234.69:3000/graphql' });
-// const httpLink = new HttpLink({ uri: 'https://api.autothoughts.xyz/' });
+// const httpLink = new HttpLink({ uri: 'http://185.137.234.69:3000/graphql' });
+const httpLink = new HttpLink({ uri: 'https://api.autothoughts.xyz/' });
 
 const authMiddleware = new ApolloLink((operation, forward) => {
   const tokens = getTokens();
