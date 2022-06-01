@@ -15,7 +15,7 @@ export const Header = (props: Props): JSX.Element => {
 
   return (
     <StyledHeader>
-      <H1>{title || 'Записи'}</H1>
+      <H1 style={{ marginRight: '16px'}}>{title || 'Записи'}</H1>
       {onSearch && (
         <Input icon={MdSearch} iconPosition="right" onBlur={onSearch}/>
       )}
