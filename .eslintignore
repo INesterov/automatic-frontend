@@ -1,3 +1,4 @@
 src/service-worker.ts
 src/serviceWorkerRegistration.ts
-src/gql/types
+src/gql/
+public
