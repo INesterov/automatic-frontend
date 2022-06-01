@@ -1,4 +1,4 @@
-src/service-worker.ts
+service-worker.ts
 src/serviceWorkerRegistration.ts
 src/gql/
 public
